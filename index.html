@@ -634,6 +634,46 @@
         .reset-icon:active span {
             transform: rotate(5deg) scale(0.9);
         }
+        /* 左上角 X(Twitter) 关注按钮 */
+        .x-follow {
+            position: fixed;
+            top: 12px;
+            left: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 10px;
+            background: rgba(11, 14, 17, 0.9);
+            border: 1px solid #f0b90b;
+            border-radius: 999px;
+            color: #f0b90b;
+            text-decoration: none;
+            transition: background 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+            z-index: 1000;
+            opacity: 1; /* 始终可见 */
+        }
+
+        .x-follow:hover {
+            background: rgba(11, 14, 17, 1);
+            border-color: #ffd666; /* 轻微提亮 */
+            box-shadow: 0 4px 16px rgba(240, 185, 11, 0.25);
+        }
+
+        .x-follow:focus-visible {
+            outline: 2px solid #ffd666;
+            outline-offset: 2px;
+        }
+
+        .x-follow span {
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+        }
+        .x-follow svg {
+            width: 16px;
+            height: 16px;
+            fill: #f0b90b;
+        }
         /* Mobile responsive adjustments */
         @media (max-width: 640px) {
             body { padding: 12px; }
@@ -654,6 +694,9 @@
             .user-controls { gap: 6px !important; }
             .user-controls select { max-width: 50vw; }
             .prediction-grid-3 { grid-template-columns: 1fr !important; gap: 16px !important; }
+            .x-follow { top: 10px; left: 10px; padding: 6px 10px; }
+            .x-follow span { font-size: 0.82rem; font-weight: 600; }
+            .x-follow svg { width: 14px; height: 14px; }
         }
     </style>
     
@@ -714,6 +757,12 @@
 <body>
     <div class="container">
         <div class="header">
+            <a class="x-follow" href="https://x.com/Ingk4080K" target="_blank" rel="noopener" title="关注我">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M18.244 2H21L13.615 10.51 22 22h-6.244l-4.77-6.289L5.5 22H3l7.91-9.12L2 2h6.244l4.324 5.69L18.244 2z"></path>
+                </svg>
+                <span>关注我</span>
+            </a>
             <div class="header-row" style="display: flex; align-items: center; justify-content: center; gap: 20px; margin-bottom: 8px; flex-wrap: wrap;">
                 <h1>币安Alpha积分规划工具</h1>
                 <!-- 用户切换区域 -->
